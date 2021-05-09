@@ -14,8 +14,8 @@ class CreateCapabilityRoleTable extends Migration
     public function up()
     {
         Schema::create('capability_role', function (Blueprint $table) {
-            $table->unsignedBigInteger('capability_id')->nullable(false);
-            $table->unsignedBigInteger('role_id')->nullable(false);
+            $table->unsignedBigInteger('capability_id');
+            $table->unsignedBigInteger('role_id');
 
             $table->foreign('capability_id')->references('id')->on('capabilities');
             $table->foreign('role_id')->references('id')->on('roles');

@@ -14,9 +14,9 @@ class CreateEmployeeProviderTable extends Migration
     public function up()
     {
         Schema::create('employee_provider', function (Blueprint $table) {
-            $table->unsignedBigInteger('employee_id')->nullable(false);
-            $table->unsignedBigInteger('provider_id')->nullable(false);
-            $table->unsignedBigInteger('role_id')->nullable(false);
+            $table->unsignedBigInteger('employee_id');
+            $table->unsignedBigInteger('provider_id');
+            $table->unsignedBigInteger('role_id');
 
             $table->foreign('employee_id')->references('id')->on('employees');
             $table->foreign('provider_id')->references('id')->on('providers');

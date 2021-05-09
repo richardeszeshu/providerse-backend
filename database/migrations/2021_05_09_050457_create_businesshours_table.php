@@ -15,10 +15,10 @@ class CreateBusinesshoursTable extends Migration
     {
         Schema::create('businesshours', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('employee_id')->nullable(false);
-            $table->unsignedInteger('weekday')->nullable(false);
-            $table->time('open_time')->nullable(false);
-            $table->time('close_time')->nullable(false);
+            $table->unsignedBigInteger('employee_id');
+            $table->unsignedInteger('weekday');
+            $table->time('open_time');
+            $table->time('close_time');
             $table->timestamps();
 
             $table->foreign('employee_id')->references('id')->on('employees');

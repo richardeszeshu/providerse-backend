@@ -14,13 +14,13 @@ class CreateBookingServiceTable extends Migration
     public function up()
     {
         Schema::create('booking_service', function (Blueprint $table) {
-            $table->unsignedBigInteger('booking_id')->nullable(false);
-            $table->unsignedBigInteger('service_id')->nullable(false);
-            $table->unsignedBigInteger('employee_id')->nullable(false);
-            $table->timestamp('start_at')->nullable(false);
-            $table->timestamp('end_at')->nullable(false);
-            $table->float('price')->nullable(false);
-            $table->unsignedBigInteger('currency_id')->nullable(false);
+            $table->unsignedBigInteger('booking_id');
+            $table->unsignedBigInteger('service_id');
+            $table->unsignedBigInteger('employee_id');
+            $table->timestamp('start_at');
+            $table->timestamp('end_at');
+            $table->float('price');
+            $table->unsignedBigInteger('currency_id');
             $table->timestamps();
 
             $table->foreign('booking_id')->references('id')->on('bookings');

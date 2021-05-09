@@ -15,9 +15,9 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable(false);
-            $table->boolean('accepted')->nullable(false)->default(0);
-            $table->unsignedBigInteger('accepted_by');
+            $table->unsignedBigInteger('user_id');
+            $table->boolean('accepted')->default(0);
+            $table->unsignedBigInteger('accepted_by')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

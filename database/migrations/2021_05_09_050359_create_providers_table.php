@@ -15,12 +15,12 @@ class CreateProvidersTable extends Migration
     {
         Schema::create('providers', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255)->nullable(false);
-            $table->text('description');
-            $table->string('phone', 15);
-            $table->string('website', 255);
-            $table->string('vat_number', 15);
-            $table->unsignedBigInteger('default_currency')->nullable(false);
+            $table->string('name', 255);
+            $table->text('description')->nullable();
+            $table->string('phone', 15)->nullable();
+            $table->string('website', 255)->nullable();
+            $table->string('vat_number', 15)->nullable();
+            $table->unsignedBigInteger('default_currency');
             $table->timestamps();
 
             $table->foreign('default_currency')->references('id')->on('currencies');

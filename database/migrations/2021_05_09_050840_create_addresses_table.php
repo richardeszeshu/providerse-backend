@@ -15,21 +15,20 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('addressable_id')->nullable(false);
-            $table->string('addressable_type', 255)->nullable(false);
-            $table->string('type', 10)->nullable(false);
-            $table->unsignedBigInteger('country_id');
-            $table->string('providence', 64);
-            $table->string('city', 64);
-            $table->string('address', 64);
-            $table->string('postal_code', 64);
-            $table->point('location');
+            $table->unsignedBigInteger('addressable_id');
+            $table->string('addressable_type', 255);
+            $table->string('type', 10);
+            $table->unsignedBigInteger('country_id')->nullable();
+            $table->string('providence', 64)->nullable();
+            $table->string('city', 64)->nullable();
+            $table->string('address', 64)->nullable();
+            $table->string('postal_code', 64)->nullable();
+            $table->point('location')->nullable();
             $table->timestamps();
 
             $table->foreign('country_id')->references('id')->on('countries');
 
             $table->index(['addressable_id', 'addressable_type']);
-            $table->index('location');
         });
     }
 

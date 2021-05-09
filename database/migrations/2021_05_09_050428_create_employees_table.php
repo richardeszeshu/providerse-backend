@@ -15,11 +15,11 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable(true);
+            $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->unsignedBigInteger('language_id')->nullable(false);
-            $table->string('phone', 15);
+            $table->unsignedBigInteger('language_id');
+            $table->string('phone', 15)->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

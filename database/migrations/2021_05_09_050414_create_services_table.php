@@ -15,12 +15,12 @@ class CreateServicesTable extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255)->nullable(false);
-            $table->text('description');
-            $table->float('price')->nullable(false);
-            $table->float('special_price');
-            $table->unsignedBigInteger('currency_id')->nullable(false);
-            $table->unsignedInteger('length')->nullable(false);
+            $table->string('name', 255);
+            $table->text('description')->nullable();
+            $table->float('price');
+            $table->float('special_price')->nullable();
+            $table->unsignedBigInteger('currency_id');
+            $table->unsignedInteger('length');
             $table->timestamps();
 
             $table->foreign('currency_id')->references('id')->on('currencies');

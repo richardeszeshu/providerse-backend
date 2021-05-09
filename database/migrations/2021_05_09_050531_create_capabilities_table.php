@@ -15,7 +15,7 @@ class CreateCapabilitiesTable extends Migration
     {
         Schema::create('capabilities', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 45)->unique()->nullable(false);
+            $table->string('name', 45)->unique();
             $table->timestamps();
         });
     }

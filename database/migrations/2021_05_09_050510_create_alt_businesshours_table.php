@@ -15,11 +15,11 @@ class CreateAltBusinesshoursTable extends Migration
     {
         Schema::create('alt_businesshours', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('employee_id')->nullable(false);
-            $table->date('start_date')->nullable(false);
-            $table->date('end_date')->nullable(false);
-            $table->time('open_time');
-            $table->time('close_time');
+            $table->unsignedBigInteger('employee_id');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->time('open_time')->nullable();
+            $table->time('close_time')->nullable();
             $table->timestamps();
 
             $table->foreign('employee_id')->references('id')->on('employees');

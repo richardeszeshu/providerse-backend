@@ -15,10 +15,10 @@ class CreateImagesTable extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('imageable_id')->nullable(false);
-            $table->string('imageable_type', 255)->nullable(false);
-            $table->string('type', 10)->nullable(false);
-            $table->string('path', 255)->nullable(false);
+            $table->unsignedBigInteger('imageable_id');
+            $table->string('imageable_type', 255);
+            $table->string('type', 10);
+            $table->string('path', 255);
             $table->timestamps();
 
             $table->index(['imageable_id', 'imageable_type']);
