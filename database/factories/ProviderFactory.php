@@ -24,9 +24,9 @@ class ProviderFactory extends Factory
         return [
             'name' => $this->faker->company(),
             'description' => $this->faker->paragraph(),
-            'phone' => $this->faker->phoneNumber(),
+            'phone' => $this->faker->e164PhoneNumber(),
             'website' => $this->faker->url(),
-            'vat_number' => $this->faker->vat(),
+            'vat_number' => $this->faker->numerify('###########'),
             'default_currency' => $this->faker->numberBetween(1, 5)
         ];
     }

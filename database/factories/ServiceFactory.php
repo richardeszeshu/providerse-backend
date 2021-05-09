@@ -22,10 +22,10 @@ class ServiceFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->words(2),
+            'name' => $this->faker->word(),
             'description' => $this->faker->paragraph(),
-            'price' => $this->faker->randomFloat(),
-            'special_price' => $this->faker->randomFloat(),
+            'price' => $this->faker->randomFloat(null, 0, 10000),
+            'special_price' => $this->faker->randomFloat(null, 0, 10000),
             'currency_id' => $this->faker->numberBetween(1, 5),
             'length' => $this->faker->numberBetween(15, 60)
         ];
