@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateEmployeeServiceTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('employee_service', function (Blueprint $table) {
+            $table->unsignedBigInteger('employee_id')->nullable(false);
+            $table->unsignedBigInteger('service_id')->nullable(false);
+
+            $table->foreign('employee_id')->references('id')->on('employees');
+            $table->foreign('service_id')->references('id')->on('services');
+
+            $table->unique(['employee_id', 'service_id']);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('employee_service');
+    }
+}
