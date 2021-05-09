@@ -55,4 +55,24 @@ class Employee extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the language associated with the employee.
+     *
+     * @return App\Models\Language
+     */
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
+
+    /**
+     * Get the services associated with the employee.
+     *
+     * @return Illuminate\Support\Collection
+     */
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
+    }
 }

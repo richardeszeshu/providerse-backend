@@ -25,4 +25,14 @@ class Capability extends Model
     protected $fillable = [
         'name'
     ];
+
+    /**
+     * Get the roles that owns the capability.
+     *
+     * @return Illuminate\Support\Collection
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
 }

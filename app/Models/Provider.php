@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string     $name
  * @property string     $description
  * @property string     $phone
+ * @property string     $website
  * @property string     $vat_number
  * @property integer    $default_currency
  * @property integer    $created_at
@@ -30,8 +31,18 @@ class Provider extends Model
         'name',
         'description',
         'phone',
+        'website',
         'vat_number',
         'default_currency'
     ];
-}
+
+    /**
+     * Get the employees associated with the provider.
+     *
+     * @return Illuminate\Support\Collection
+     */
+    public function employees()
+    {
+        return $this->belongsToMany(Employee::class);
+    }
 }

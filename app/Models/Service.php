@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Service modedl
+ * Service model
  *
  * @property integer    $id
  * @property string     $name
@@ -34,5 +34,25 @@ class Service extends Model
         'special_price',
         'currency_id',
         'length'
-    ]
+    ];
+
+    /**
+     * Get the employees associated with the service.
+     *
+     * @return Illuminate\Support\Collection
+     */
+    public function employees()
+    {
+        return $this->belongsToMany(Employee::class);
+    }
+
+    /**
+     * Get the currency associated with the service.
+     *
+     * @return App\Models\Currency
+     */
+    public function currency()
+    {
+        return $this->belongsTo(Currency::class);
+    }
 }

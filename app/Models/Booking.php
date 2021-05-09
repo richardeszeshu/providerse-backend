@@ -31,4 +31,34 @@ class Booking extends Model
         'accepted',
         'accepted_by'
     ];
+
+    /**
+     * Get the user that owns the booking.
+     *
+     * @return App\Models\User
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the employee that accepted the booking.
+     *
+     * @return App\Models\Employee
+     */
+    public function acceptedBy()
+    {
+        return $this->belongsTo(Employee::class, 'accepted_by');
+    }
+
+    /**
+     * Get the services associated with the booking.
+     *
+     * @return Illuminate\Support\Collection
+     */
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
+    }
 }

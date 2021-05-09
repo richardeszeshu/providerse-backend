@@ -48,4 +48,14 @@ class Rating extends Model
     {
         return $this->morphTo();
     }
+
+    /**
+     * Get the user that owns the rating.
+     *
+     * @return App\Models\User
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

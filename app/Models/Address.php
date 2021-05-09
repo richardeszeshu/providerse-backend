@@ -129,4 +129,14 @@ class Address extends Model
     {
         return $this->morphTo();
     }
+
+    /**
+     * Get the country associated with the address.
+     *
+     * @return App\Models\Country
+     */
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
 }

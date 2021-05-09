@@ -31,4 +31,14 @@ class Businesshour extends Model
         'open_time',
         'close_time'
     ];
+
+    /**
+     * Get the employee that owns the business hour.
+     *
+     * @return App\Models\Employee
+     */
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
 }

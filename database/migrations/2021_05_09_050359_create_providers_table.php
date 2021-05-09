@@ -18,6 +18,7 @@ class CreateProvidersTable extends Migration
             $table->string('name', 255)->nullable(false);
             $table->text('description');
             $table->string('phone', 15);
+            $table->string('website', 255);
             $table->string('vat_number', 15);
             $table->unsignedBigInteger('default_currency')->nullable(false);
             $table->timestamps();

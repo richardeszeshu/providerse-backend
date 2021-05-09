@@ -43,4 +43,14 @@ class AltBusinesshour extends Model
         'start_date' => 'datetime:Y-m-d',
         'end_date' => 'datetime:Y-m-d'
     ];
+
+    /**
+     * Get the employee that owns the alt business hour.
+     *
+     * @return App\Models\Employee
+     */
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
 }
